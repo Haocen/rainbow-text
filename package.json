@@ -1,0 +1,25 @@
+{
+  "name": "rainbow-text",
+  "version": "0.1.0",
+  "description": "Web Component(Custom Element) that show text like flowing rainbow🌈",
+  "main": "./src/rainbow-text.js",
+  "scripts": {
+    "start": "npx serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haocen/rainbow-text.git"
+  },
+  "keywords": [
+    "rainbow",
+    "text",
+    "Web Component",
+    "Custom Element"
+  ],
+  "author": "Haocen Xu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Haocen/rainbow-text/issues"
+  },
+  "homepage": "https://github.com/Haocen/rainbow-text#readme"
+}

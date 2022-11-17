@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rainbow Text Demos</title>
+  <meta name="description" content="Rainbow🌈-text ＼(^o^)／">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../src/rainbow-text.js" type="module"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Hello world!</p>
+  <h2>Behold, this is the mighty <rainbow-text>rainbow-text</rainbow-text>!</h2>
+  <p>To get started, add following content to your <code>&lt;head&gt;</code> tag:
+    <br>
+    <code>
+      &lt;script src="https://haocen.github.io/rainbow-text/src/rainbow-text.js" type="module"&gt;&lt;/script&gt;
+    </code>
+    <br>
+    And that's it! Now try to use &lt;rainbow-text&gt;Rainbow!&lt;rainbow-text&gt;
+  </p>
+  <p>You can nest <code>rainbow-text</code> in any element that will change text style, for example:
+    <ul>
+      <li>You can use it in a list, <rainbow-text>like this</rainbow-text>.</li>
+      <li>You can use it any supported HTML symbols, <rainbow-text>just like this&#8482;</rainbow-text>.</li>
+      <li>Subscript, <sub><rainbow-text>no problem</rainbow-text></sub>.</li>
+      <li>Or, any other HTML elements <i><rainbow-text>just by nesting them</rainbow-text></i>.</li>
+    </ul>
+  </p>
+  <h3>Customization</h3>
+  <p>You can assign CSS value to following variables:
+    <br>
+    <code>--animation-duration</code>, <code>--animation-timing-function</code>, <code>--animation-iteration-count</code>, <code>--animation-direction</code>, <code>--animation-fill-mode</code>, <code>--animation-play-state</code>
+    <br>
+    in order to fine tune the experience.
+    <br>
+    For example:
+    <ul>
+      <li>Make the <rainbow-text style="--animation-duration: 0.5s;">rainbow flowing</rainbow-text> faster.</li>
+      <li>Make the <rainbow-text style="--animation-duration: 5s;">rainbow flowing</rainbow-text> slower.</li>
+      <li>Make the <rainbow-text style="--animation-play-state: paused;">rainbow static</rainbow-text>.</li>
+    </ul>
+  </p>
+  <p>You can also set attribute <code>flow-direction</code> on the element:
+    <br>
+    For example:
+    <ul>
+      <li>Make the <rainbow-text flow-direction="left-to-right">rainbow flowing from left to right</rainbow-text>, this is the default behavior.</li>
+      <li>Make the <rainbow-text flow-direction="right-to-left">rainbow flowing from right to left</rainbow-text> is also possible.</li>
+    </ul>
+  </p>
+  <h3>Bugs and features</h3>
+  <p>
+    Feel free to open pull requests if you find a bug or want to implement a new feature.
+  </p>
+  <h2>Questons? Reach me at <rainbow-text>hello@haocen.me</rainbow-text></h2>
+</body>
+
+</html>
