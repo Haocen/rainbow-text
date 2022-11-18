@@ -10,7 +10,7 @@ Use a `<script type="module">` tag:
 <script type="module" src="https://haocen.github.io/rainbow-text/src/rainbow-text.js"></script>
 ```
 
-Or just download the `src/rainbow-text.js` and host somewhere you own.
+Or just download the `src/rainbow-text.js` and host somewhere you want.
 
 ## Demo
 

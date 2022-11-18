@@ -18,7 +18,6 @@
 </head>
 
 <body>
-  <p>Hello world!</p>
   <h2>Behold, this is the mighty <rainbow-text>rainbow-text</rainbow-text>!</h2>
   <p>To get started, add following content to your <code>&lt;head&gt;</code> tag:
     <br>
@@ -27,19 +26,32 @@
     </code>
     <br>
     And that's it! Now try to add <code>&lt;rainbow-text&gt;Rainbow!&lt;rainbow-text&gt;</code> somewhere visible on your website and enjoy the flowing colors.
+    <br>
+    You may also just the `src/rainbow-text.js` and host somewhere you want.
   </p>
-  <p>You can nest <code>rainbow-text</code> in any element that will change text style, for example:
+  <p>You can nest <code>rainbow-text</code> in any element that will accept text node, with any plain text content between a pair of <code>&lt;rainbow-text&gt;&lt;/rainbow-text&gt;</code> tags, for example:
     <ul>
       <li>You can use it in a list, <rainbow-text>like this</rainbow-text>.</li>
-      <li>You can use it any supported HTML symbols, <rainbow-text>just like this&#8482;</rainbow-text>.</li>
+      <li>You can put in any supported HTML symbols, <rainbow-text>just like this&#8482;</rainbow-text>.</li>
       <li>Subscript, <sub><rainbow-text>no problem</rainbow-text></sub>.</li>
-      <li>Or, any other HTML elements <i><rainbow-text>just by nesting them</rainbow-text></i>.</li>
+      <li>Or, any other HTML elements <i><rainbow-text>just by nesting in them</rainbow-text></i>.</li>
+      <li><b>Note: Unfortunately Font Awesome is not supported because it is technically not text node.</b></li>
     </ul>
   </p>
   <h3>Customization</h3>
-  <p>You can assign CSS value to following variables:
+  <p>You can assign CSS value to following CSS variable names:
     <br>
-    <code>--animation-duration</code>, <code>--animation-timing-function</code>, <code>--animation-iteration-count</code>, <code>--animation-direction</code>, <code>--animation-fill-mode</code>, <code>--animation-play-state</code>
+    <code>--animation-duration</code> (default to "2s")
+    <br>
+    <code>--animation-timing-function</code> (default to "linear")
+    <br>
+    <code>--animation-iteration-count</code> (default to "infinite")
+    <br>
+    <code>--animation-direction</code> (default to "normal")
+    <br>
+    <code>--animation-fill-mode</code> (default to "none")
+    <br>
+    <code>--animation-play-state</code> (default to "running")
     <br>
     in order to fine tune the experience.
     <br>
@@ -50,7 +62,7 @@
       <li>Make the <rainbow-text style="--animation-play-state: paused;">rainbow static</rainbow-text>.</li>
     </ul>
   </p>
-  <p>You can also set attribute <code>flow-direction</code> on the element:
+  <p>You can also set attribute <code>flow-direction</code>  (default to "left-to-right") on the element:
     <br>
     For example:
     <ul>
