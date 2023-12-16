@@ -9,73 +9,81 @@
   <script src="../src/rainbow-text.js" type="module"></script>
   <style>
     body {
+      margin: 0;
+      min-width: 300px;
+      position: relative;
+    }
+    .main {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin: 0 1em;
     }
   </style>
 </head>
 
 <body>
   <a style="position: absolute; right: 0; top: 0; cursor: pointer;" href="https://github.com/haocen/rainbow-text"><img decoding="async" loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-  <h2 style="max-width: calc(100vw - 150px);">Behold, this is the mighty <rainbow-text>rainbow-text</rainbow-text>!</h2>
-  <p>To get started, add following content to your <code>&lt;head&gt;</code> tag:
-    <br>
-    <code>
-      &lt;script src="https://haocen.github.io/rainbow-text/src/rainbow-text.js" type="module"&gt;&lt;/script&gt;
-    </code>
-    <br>
-    And that's it! Now try to add <code>&lt;rainbow-text&gt;Rainbow!&lt;rainbow-text&gt;</code> somewhere visible on your website and enjoy the flowing colors.
-    <br>
-    You may also download the <code>src/rainbow-text.js</code> <a href="../src/rainbow-text.js">file</a> and host somewhere you want.
-  </p>
-  <p>You can nest <code>rainbow-text</code> in any element accepts text node, with any plain text content between a pair of <code>&lt;rainbow-text&gt;&lt;/rainbow-text&gt;</code> tags, for example:
-    <ul>
-      <li>You can use it in a list, <rainbow-text>like this</rainbow-text>.</li>
-      <li>You can put in any supported HTML symbols, <rainbow-text>just like this&#8482;</rainbow-text>.</li>
-      <li>Subscript, <sub><rainbow-text>no problem</rainbow-text></sub>.</li>
-      <li>Or, any other HTML elements <i><rainbow-text>just by nesting in them</rainbow-text></i>.</li>
-      <li><b>Note: Unfortunately Font Awesome is not supported because it is technically not text node.</b></li>
-    </ul>
-  </p>
-  <h3>Customization</h3>
-  <p>You can assign CSS value to following CSS variable names:
-    <br>
-    <code>--animation-duration</code> (default to "2s")
-    <br>
-    <code>--animation-timing-function</code> (default to "linear")
-    <br>
-    <code>--animation-iteration-count</code> (default to "infinite")
-    <br>
-    <code>--animation-direction</code> (default to "normal")
-    <br>
-    <code>--animation-fill-mode</code> (default to "none")
-    <br>
-    <code>--animation-play-state</code> (default to "running")
-    <br>
-    in order to fine tune the experience.
-    <br>
-    For example:
-    <ul>
-      <li>Make the <rainbow-text style="--animation-duration: 0.5s;">rainbow flowing</rainbow-text> faster.</li>
-      <li>Make the <rainbow-text style="--animation-duration: 5s;">rainbow flowing</rainbow-text> slower.</li>
-      <li>Make the <rainbow-text style="--animation-play-state: paused;">rainbow static</rainbow-text>.</li>
-    </ul>
-  </p>
-  <p>You can also set attribute <code>flow-direction</code>  (default to "left-to-right") on the element:
-    <br>
-    For example:
-    <ul>
-      <li>Make the <rainbow-text flow-direction="left-to-right">rainbow flowing from left to right</rainbow-text>, this is the default behavior.</li>
-      <li>Make the <rainbow-text flow-direction="right-to-left">rainbow flowing from right to left</rainbow-text> is also possible.</li>
-    </ul>
-  </p>
-  <h3>Bugs and features</h3>
-  <p>
-    Feel free to open pull requests if you find a bug or want to implement a new feature.
-  </p>
-  <h2>Questons? Reach me at <rainbow-text>hello@haocen.me</rainbow-text></h2>
+  <div class="main">
+  <h1 style="margin-right: 200px; position: relative; left: 100px;">Behold, this is the mighty <rainbow-text>rainbow-text</rainbow-text>!</h1>
+    <p>To get started, add following content to your <code>&lt;head&gt;</code> tag:
+      <br>
+      <code>
+        &lt;script src="https://haocen.github.io/rainbow-text/src/rainbow-text.js" type="module"&gt;&lt;/script&gt;
+      </code>
+      <br>
+      And that's it! Now try to add <code>&lt;rainbow-text&gt;Rainbow!&lt;rainbow-text&gt;</code> somewhere visible on your website and enjoy the flowing colors.
+      <br>
+      You may also download the <code>src/rainbow-text.js</code> <a href="../src/rainbow-text.js">file</a> and host somewhere you want.
+    </p>
+    <p>You can nest <code>rainbow-text</code> in any element accepts text node, with any plain text content between a pair of <code>&lt;rainbow-text&gt;&lt;/rainbow-text&gt;</code> tags, for example:
+      <ul>
+        <li>You can use it in a list, <rainbow-text>like this</rainbow-text>.</li>
+        <li>You can put in any supported HTML symbols, <rainbow-text>just like this&#8482;</rainbow-text>.</li>
+        <li>Subscript, <sub><rainbow-text>no problem</rainbow-text></sub>.</li>
+        <li>Or, any other HTML elements <i><rainbow-text>just by nesting in them</rainbow-text></i>.</li>
+        <li><b>Note: Unfortunately Font Awesome is not supported because it is technically not text node.</b></li>
+      </ul>
+    </p>
+    <h3>Customization</h3>
+    <p>You can assign CSS value to following CSS variable names:
+      <br>
+      <code>--animation-duration</code> (default to "2s")
+      <br>
+      <code>--animation-timing-function</code> (default to "linear")
+      <br>
+      <code>--animation-iteration-count</code> (default to "infinite")
+      <br>
+      <code>--animation-direction</code> (default to "normal")
+      <br>
+      <code>--animation-fill-mode</code> (default to "none")
+      <br>
+      <code>--animation-play-state</code> (default to "running")
+      <br>
+      in order to fine tune the experience.
+      <br>
+      For example:
+      <ul>
+        <li>Make the <rainbow-text style="--animation-duration: 0.5s;">rainbow flowing</rainbow-text> faster.</li>
+        <li>Make the <rainbow-text style="--animation-duration: 5s;">rainbow flowing</rainbow-text> slower.</li>
+        <li>Make the <rainbow-text style="--animation-play-state: paused;">rainbow static</rainbow-text>.</li>
+      </ul>
+    </p>
+    <p>You can also set attribute <code>flow-direction</code>  (default to "left-to-right") on the element:
+      <br>
+      For example:
+      <ul>
+        <li>Make the <rainbow-text flow-direction="left-to-right">rainbow flowing from left to right</rainbow-text>, this is the default behavior.</li>
+        <li>Make the <rainbow-text flow-direction="right-to-left">rainbow flowing from right to left</rainbow-text> is also possible.</li>
+      </ul>
+    </p>
+    <h3>Bugs and features</h3>
+    <p>
+      Feel free to open pull requests if you find a bug or want to implement a new feature.
+    </p>
+    <h2>Questons? Reach me at <rainbow-text>hello@haocen.me</rainbow-text></h2>
+  </div>
 </body>
 
 </html>
