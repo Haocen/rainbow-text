@@ -7,6 +7,9 @@
   <meta name="description" content="Rainbow🌈-text ＼(^o^)／">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../src/rainbow-text.js" type="module"></script>
   <style>
     body {
@@ -21,7 +24,16 @@
       align-items: center;
       margin: 0 1em;
     }
+    pre {
+      max-width: 100%;
+    }
   </style>
+  <script>
+    window.addEventListener('load', () => {
+      console.warn('=== here ===')
+      hljs.highlightAll();
+    });
+  </script>
 </head>
 
 <body>
@@ -30,13 +42,15 @@
   <h1 style="margin-right: 200px; position: relative; left: 100px;">Behold, this is the mighty <rainbow-text>rainbow-text</rainbow-text>!</h1>
     <p>To get started, add following content to your <code>&lt;head&gt;</code> tag:
       <br>
-      <code>
-        &lt;script src="https://haocen.github.io/rainbow-text/src/rainbow-text.js" type="module"&gt;&lt;/script&gt;
-      </code>
+      <pre>
+        <code class="language-html">
+&lt;script src="https://haocen.github.io/rainbow-text/src/rainbow-text.js" type="module"&gt;&lt;/script&gt;
+        </code>
+      </pre>
       <br>
       And that's it! Now try to add <code>&lt;rainbow-text&gt;Rainbow!&lt;rainbow-text&gt;</code> somewhere visible on your website and enjoy the flowing colors.
       <br>
-      You may also download the <code>src/rainbow-text.js</code> <a href="../src/rainbow-text.js">file</a> and host the file anywhere you want.
+      You may also download the <code style="display: contents;">src/rainbow-text.js</code> <a style="display: contents;" href="../src/rainbow-text.js">file</a> and host the file anywhere you want.
     </p>
     <p>You can nest <code>rainbow-text</code> in any element accepts text node, with any plain text content between a pair of <code>&lt;rainbow-text&gt;&lt;/rainbow-text&gt;</code> tags, for example:
       <ul>
@@ -52,12 +66,14 @@
       <br>
       This is required even if font awesome CSS is already loaded because of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM#applying_styles_inside_the_shadow_dom" target="_blank">shadow DOM styles isolation</a>, following is an example:
       <br>
-      <code>
-        &lt;rainbow-text&gt;<br>
-          &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /&gt;<br>
-            Hello font awesome &lt;i class="fa-brands fa-fort-awesome"&gt;&lt;/i&gt;<br>
-        &lt;/rainbow-text&gt;<br>
-      </code>
+      <pre>
+        <code class="language-html">
+&lt;rainbow-text&gt;<br>
+  &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /&gt;<br>
+    Hello font awesome &lt;i class="fa-brands fa-fort-awesome"&gt;&lt;/i&gt;<br>
+&lt;/rainbow-text&gt;<br>
+        </code>
+      </pre>
       Will give you:
       <br>
       <rainbow-text><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />Hello font awesome  <i class="fa-brands fa-fort-awesome"></i></rainbow-text>
