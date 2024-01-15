@@ -101,24 +101,88 @@ export class RainbowText extends HTMLElement {
     this.#rainbowTextContainer = shadowRoot.querySelector('[part=rainbow-text-container]');
   }
 
+  #renderTextNode(textNode) {
+    const characters = textNode.textContent;
+    return characters.split('').map(
+      (character, index) => {
+        const characterElement = window.document.createElement('span');
+        characterElement.classList.add('rainbow-character');
+        characterElement.innerText = character;
+        /*
+        characterElement.style.setProperty(
+          '--character-percent',
+          index / characters.length
+        );
+        */
+        return characterElement;
+      }
+    );
+  }
+
+  #renderNodesOrCharacter(nodesOrCharacters) {
+    return nodesOrCharacters.map(
+      (nodeOrCharacter, index) => {
+        const characterElement = window.document.createElement('span');
+        characterElement.classList.add('rainbow-character');
+        if (nodeOrCharacter instanceof Node) {
+          characterElement.appendChild(nodeOrCharacter);
+        } else {
+          characterElement.innerText = nodeOrCharacter;
+        }
+        /*
+        characterElement.style.setProperty(
+          '--character-percent',
+          index / nodesOrCharacters.length
+        );
+        */
+        return characterElement;
+      }
+    );
+  }
+
+  #renderChildNodes(childNodes) {
+    const renderedChildNodes = [];
+    for (const childNode of childNodes) {
+      if (childNode.nodeType ===  Node.TEXT_NODE) {
+        renderedChildNodes.push(...this.#renderNodesOrCharacter(childNode.textContent.split('')));
+      } else if (false && childNode.hasChildNodes()) {
+        // Don't do anything for now, because <style> can have textNode child
+        const renderedGrandchildNodes = this.#renderChildNodes(childNode);
+        const clonedChildNode = childNode.cloneNode();
+        for (const renderedGrandchildNode of renderedGrandchildNodes) {
+          clonedChildNode.appendChild(renderedGrandchildNode);
+        }
+        renderedChildNodes.push(clonedChildNode);
+      } else if (childNode.nodeType ===  Node.ELEMENT_NODE && (childNode.tagName !== 'LINK' && childNode.tagName !== 'STYLE')) {
+        // Technically we should be able to handle any element that works with "color" CSS property, for example font awesome
+        renderedChildNodes.push(...this.#renderNodesOrCharacter([childNode.cloneNode()]));
+      } else {
+        // Do nothing, this should handle <link> and <style> elements
+        renderedChildNodes.push(childNode.cloneNode(true));
+      }
+    }
+    // recalculate index
+    const characterElements = renderedChildNodes.filter(renderedChildNode => renderedChildNode.classList.contains('rainbow-character'));
+    characterElements.forEach((characterElement, index) => {
+      characterElement.style.setProperty(
+        '--character-percent',
+        index / characterElements.length
+      );
+    });
+    return renderedChildNodes;
+  }
+
   #renderInnerContent() {
     if (this.#rainbowTextContainer instanceof HTMLElement) {
       while (this.#rainbowTextContainer.lastChild !== null) {
         this.#rainbowTextContainer.removeChild(this.#rainbowTextContainer.lastChild);
       }
-      const characters = this.textContent;
-      characters.split('').map(
-        (character, index) => {
-          const characterElement = window.document.createElement('span');
-          characterElement.classList.add('rainbow-character');
-          characterElement.innerText = character;
-          characterElement.style.setProperty(
-            '--character-percent',
-            index / characters.length
-          );
-          this.#rainbowTextContainer.appendChild(characterElement);
-        }
-      );
+      // We only handle text nodes, recursively
+      const renderedChildNodes = this.#renderChildNodes(this.childNodes);
+      // TODO: support font awesome by handling <i> tags, for example <i class="fa-solid fa-gear"></i>
+      for (const renderedChildNode of renderedChildNodes) {
+        this.#rainbowTextContainer.appendChild(renderedChildNode);
+      }
     }
   }
 
@@ -137,8 +201,7 @@ export class RainbowText extends HTMLElement {
     this.#observer = new MutationObserver((mutationsList) => {
       if (
         Array.from(mutationsList).some(mutation => mutation.type === 'childList') &&
-          typeof this.textContent === 'string' &&
-          this.textContent.length > 0
+          this.childNodes.length > 0
       ) {
         // disconnect to avoid recursive call
         this.#observer.disconnect();
